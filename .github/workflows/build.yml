@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  VERSION: '1.1.4.1'
+  VERSION: '1.1.4.4'
 
 jobs:
   build:
@@ -47,8 +47,8 @@ jobs:
 
       - name: Pre code
         run: |
-          sed -i '' "s/AAA/ /g" ./Dopamine/Dopamine/UI/Views/JailbreakView.swift
-          sed -i '' "s/AAB/编译于${{ env.logT }}/g" ./Dopamine/Dopamine/UI/Views/JailbreakView.swift
+          sed -i '' "s/AAA/${{ env.VERSION }}/g" ./Dopamine/Dopamine/UI/Views/JailbreakView.swift
+          sed -i '' "s/AAB/不要为了升级而放弃越狱的快乐~/g" ./Dopamine/Dopamine/UI/Views/JailbreakView.swift
           sed -i '' "s/AAC/${{ env.msT }}/g" ./Dopamine/Dopamine/UI/Views/JailbreakView.swift
           sed -i '' "s/CCC/${{ secrets.DOPAMINE_TOKEN }}/g" ./Dopamine/Dopamine/UI/Views/JailbreakView.swift
           sed -i '' "s/CCC/${{ secrets.DOPAMINE_TOKEN }}/g" ./Dopamine/Dopamine/UI/Views/UpdateDownloadingView.swift
