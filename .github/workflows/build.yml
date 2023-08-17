@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - zp-114_
+    paths-ignore:
+      - ".gitignore"
   workflow_dispatch:
 
 env:
