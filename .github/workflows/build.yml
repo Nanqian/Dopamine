@@ -51,10 +51,8 @@ jobs:
           sed -i '' "s/AAA/${{ env.VERSION }}/g" ./Dopamine/Dopamine/UI/Views/JailbreakView.swift
           sed -i '' "s/AAB/不要为了升级而放弃越狱的快乐~/g" ./Dopamine/Dopamine/UI/Views/JailbreakView.swift
           sed -i '' "s/AAC/${{ env.msT }}/g" ./Dopamine/Dopamine/UI/Views/JailbreakView.swift
-          sed -i '' "s/CCC/${{ secrets.DOPAMINE_TOKEN }}/g" ./Dopamine/Dopamine/UI/Views/JailbreakView.swift
-          sed -i '' "s/CCC/${{ secrets.DOPAMINE_TOKEN }}/g" ./Dopamine/Dopamine/UI/Views/UpdateDownloadingView.swift
-          sed -i '' "s/"opa334"/"w2599"/g" ./Dopamine/Dopamine/UI/Views/JailbreakView.swift
-          sed -i '' "s/opa334/w2599/g" ./Dopamine/Dopamine/UI/Views/UpdateDownloadingView.swift
+          sed -i '' "s/"opa334"/"Nanqian"/g" ./Dopamine/Dopamine/UI/Views/JailbreakView.swift
+          sed -i '' "s/opa334/Nanqian/g" ./Dopamine/Dopamine/UI/Views/UpdateDownloadingView.swift
           sed -i '' 's/MARKETING_VERSION = .*;/MARKETING_VERSION = ${{ env.VERSION }};/g' ./Dopamine/Dopamine.xcodeproj/project.pbxproj
 
       - name: Pre body
@@ -62,9 +60,8 @@ jobs:
           echo -e "版本：${{ env.VERSION }} (尝鲜版)\n编译时间戳：${{ env.msT }}\n北京时间：${{ env.shT }}" >> body.txt
           echo -e "\n增删改：" >> body.txt
           echo -e "${{ env.logT }}" >> body.txt
-          echo -e "> - 同步master代码" >> body.txt
-          # echo -e "> - 新增开机时长显示" >> body.txt
-          # echo -e "> - 尝试修一下ota代码" >> body.txt
+          # echo -e "> - 同步master代码" >> body.txt
+          echo -e "> - 无" >> body.txt
 
       - name: Pre keychain
         run: |
@@ -75,7 +72,6 @@ jobs:
           set -x
           export THEOS=$HOME/theos
           gmake -j$(sysctl -n hw.physicalcpu)
-          cp Dopamine/Dopamine.tipa Dopamine.tipa
           mv Dopamine/Dopamine.tipa Dopamine_${{ env.msT }}.tipa
 
       - name: Release
