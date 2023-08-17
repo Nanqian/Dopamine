@@ -14,7 +14,7 @@ Dopamine.tipa: build/Build/Products/Debug-iphoneos/Dopamine.app
 	rm -rf Payload
 
 build/Build/Products/Debug-iphoneos/Dopamine.app: FORCE
-	xcodebuild -scheme Dopamine -derivedDataPath build -destination 'generic/platform=iOS' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+	xcodebuild -scheme Dopamine -derivedDataPath build -destination 'generic/platform=iOS' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO GCC_PREPROCESSOR_DEFINITIONS="BUNDLE_ID=com.nanqian.Dopamine"
 
 clean:
 	rm -rf build Payload Dopamine.tipa
