@@ -85,7 +85,7 @@ jobs:
           target_commitish: 114_
           body_path: body.txt
           prerelease: true
-          token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           files: |
             *.tipa
 
